@@ -557,8 +557,8 @@ body {
    ========================================= */
 .skills-clock-widget {
     position: absolute;
-    top: 5%;
-    right: 4%;
+    top: 10%;
+    right: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -585,18 +585,7 @@ body {
     mix-blend-mode: screen;
 }
 
-/* live time printed over the clock face */
-.clock-live-time {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-quaternary);
-    font-size: 1.1rem;
-    color: var(--color-cyan);
-    text-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
-    letter-spacing: 2px;
-    white-space: nowrap;
-    animation: glowPulse 2s ease-in-out infinite alternate;
+
 }
 
 @keyframes glowPulse {
