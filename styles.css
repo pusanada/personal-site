@@ -509,6 +509,140 @@ body {
     position: relative;
 }
 
+/* =========================================
+   CRT SCANLINE + FLICKER OVERLAY
+   ========================================= */
+.crt-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9500;
+    /* scanlines via repeating gradient */
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.07) 2px,
+        rgba(0, 0, 0, 0.07) 4px
+    );
+    animation: crtFlicker 8s infinite;
+}
+
+/* subtle vignette on top of scanlines */
+.crt-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 60%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+}
+
+@keyframes crtFlicker {
+    0%   { opacity: 1; }
+    92%  { opacity: 1; }
+    93%  { opacity: 0.85; }
+    94%  { opacity: 1; }
+    96%  { opacity: 0.9; }
+    97%  { opacity: 1; }
+    99%  { opacity: 0.92; }
+    100% { opacity: 1; }
+}
+
+/* =========================================
+   SKILLS CLOCK WIDGET
+   ========================================= */
+.skills-clock-widget {
+    position: absolute;
+    top: 50%;
+    right: 6%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.clock-img-wrap {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock-img-spin {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: spinClock 20s linear infinite;
+    opacity: 0.9;
+    mix-blend-mode: screen;
+}
+
+/* live time printed over the clock face */
+.clock-live-time {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-quaternary);
+    font-size: 1.6rem;
+    color: var(--color-cyan);
+    text-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
+    letter-spacing: 2px;
+    white-space: nowrap;
+    animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from { text-shadow: 0 0 6px var(--color-cyan), 0 0 12px var(--color-cyan); }
+    to   { text-shadow: 0 0 14px var(--color-cyan), 0 0 30px var(--color-cyan), 0 0 2px #fff; }
+}
+
+/* three stat numbers below the clock */
+.clock-stats-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.clock-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.clock-stat-num {
+    font-family: var(--font-quaternary);
+    font-size: 2.2rem;
+    color: var(--color-cyan);
+    line-height: 1;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+}
+
+.clock-stat-num::after {
+    content: '+';
+    font-size: 1.2rem;
+    vertical-align: super;
+    opacity: 0.7;
+}
+
+.clock-stat-label {
+    font-family: var(--font-quaternary);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
 .skills-clock-container {
     position: absolute;
     top: -150px;
@@ -516,7 +650,7 @@ body {
     width: 600px;
     height: 600px;
     opacity: 0.5;
-    mix-blend-mode: screen; /* Works well if Clock.jpg has dark background */
+    mix-blend-mode: screen;
     animation: spinClock 30s linear infinite;
     pointer-events: none;
     z-index: 0;
@@ -526,11 +660,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 50%; /* Just in case it's square */
+    border-radius: 50%;
 }
 
 @keyframes spinClock {
-    0% { transform: rotate(0deg); }
+    0%   { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
