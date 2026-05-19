@@ -216,9 +216,10 @@ body {
     margin-bottom: 60px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 250px) {
     .main-title {
-        font-size: clamp(10px, 10vw, 2rem);
+        font-size: clamp(10px, 250px);
+        max-width: 280;
         text-shadow: 2px 2px 0 var(--color-navy);
         overflow: hidden;
         white-space: nowrap;
