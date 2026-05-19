@@ -216,7 +216,7 @@ body {
     margin-bottom: 60px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
     .main-title {
         font-size: clamp(10px, 10vw, 2.5rem);
         text-shadow: 2px 2px 0 var(--color-navy);
