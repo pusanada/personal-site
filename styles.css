@@ -217,7 +217,6 @@ body {
 }
 
 .main-title {
-    object-fit: cover;
     font-family: var(--font-secondary);
     font-size: clamp(14px, 3vw, 6rem);
     font-weight: 900;
