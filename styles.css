@@ -214,13 +214,12 @@ body {
 
 .title-container {
     margin-bottom: 60px;
-    width: 55vw;
 }
 
 .main-title {
     object-fit: cover;
     font-family: var(--font-secondary);
-    font-size: 5vw;
+    font-size: clamp(14px, 3vw, 6rem);
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
