@@ -216,6 +216,13 @@ body {
     margin-bottom: 60px;
 }
 
+@media (max-width: 600px) {
+    .main-title {
+        fornt-size: clamp(10px, 10vw, 2.5rem);
+        text-shadow: 2px 2px 0 var(--color-navy);
+    }
+}
+
 .main-title {
     font-family: var(--font-secondary);
     font-size: clamp(14px, 8vw, 6rem);
