@@ -218,7 +218,7 @@ body {
 
 @media (max-width: 400px) {
     .main-title {
-        font-size: clamp(10px, 10vw, 2.5rem);
+        font-size: clamp(10px, 10vw, 2rem);
         text-shadow: 2px 2px 0 var(--color-navy);
         overflow: hidden;
         white-space: nowrap;
