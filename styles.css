@@ -220,6 +220,8 @@ body {
     .main-title {
         fornt-size: clamp(10px, 10vw, 2.5rem);
         text-shadow: 2px 2px 0 var(--color-navy);
+        overflow: hidden;
+        white-space: hidden;
     }
 }
 
