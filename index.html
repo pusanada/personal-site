@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona 3 Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Simplified Transition Overlay -->
+    <div id="transition-overlay">
+        <div class="transition-white-wipe"></div>
+        <div class="transition-cyan-wipe"></div>
+        <div class="transition-base-bg"></div>
+    </div>
+
+    <!-- Global Background Texture Overlay -->
+    <div class="global-texture-overlay"></div>
+
+    <div id="app">
+        <!-- HOME PAGE -->
+        <section id="page-home" class="page active">
+            <!-- Huge panning background character -->
+            <div class="huge-bg-character">
+                <img src="image/cha-gif.gif" alt="">
+            </div>
+            
+            <div class="home-massive-text-container">
+                <div class="home-massive-text">PUSANADA<br>KWANGPAIBOON</div>
+            </div>
+
+            <div class="home-bg-left">
+                <div class="water-ripple"></div>
+            </div>
+            <div class="home-bg-right"></div>
+            
+            <div class="content-container">
+                <div class="title-container">
+                    <span class="quaternary-label">select</span>
+                    <h1 class="main-title">PERSONALSITE</h1>
+                </div>
+                
+                <nav class="home-menu">
+                    <button class="menu-btn" data-target="page-about">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">ABOUT</span>
+                        <span class="btn-sub">select</span>
+                    </button>
+                    <button class="menu-btn" data-target="page-skills">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">SKILLS</span>
+                        <span class="btn-sub">select</span>
+                    </button>
+                    <button class="menu-btn" data-target="page-contact">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">CONTACT</span>
+                        <span class="btn-sub">select</span>
+                    </button>
+                </nav>
+                
+                <div class="footer-text quaternary-label">PERSONA 3 INSPIRED</div>
+            </div>
+
+            <div class="character-container char-home">
+                <img src="image/cha-gif.gif" alt="Character" class="char-image">
+            </div>
+        </section>
+
+        <!-- SKILLS PAGE -->
+        <section id="page-skills" class="page">
+            <div class="page-header">
+                <h1 class="huge-watermark">01 MAIN</h1>
+                <h2 class="page-title">SKILLS</h2>
+                <span class="quaternary-label">select</span>
+            </div>
+            
+            <div class="skills-split">
+                <div class="skills-left">
+                    <img src="image/cha-gif.gif" alt="Character" class="char-image char-skills">
+                </div>
+                <div class="skills-right">
+                    <div class="skills-clock-container">
+                        <img src="image/Clock.jpg" alt="Clock">
+                    </div>
+                    <div class="skills-content">
+                        <h3 class="skills-head">Technical Skills</h3>
+                        <ul class="clean-list">
+                            <li><span class="list-marker"></span>Graphic Design</li>
+                            <li><span class="list-marker"></span>Visual Design</li>
+                            <li><span class="list-marker"></span>UI Prototyping</li>
+                            <li><span class="list-marker"></span>Frontend Dev (HTML, CSS, JS)</li>
+                            <li><span class="list-marker"></span>Responsive Web Design</li>
+                            <li><span class="list-marker"></span>Figma</li>
+                            <li><span class="list-marker"></span>AI-assisted Design Workflow</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="back-btn" data-target="page-home">
+                <span class="quaternary-label">BACK</span>
+                <span class="btn-icon">×</span>
+            </button>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="page-contact" class="page">
+            <div class="page-header right-aligned">
+                <h1 class="huge-watermark">CONTACT</h1>
+                <span class="quaternary-label">NETWORK STATUS</span>
+            </div>
+            
+            <div class="contact-split">
+                <div class="contact-left">
+                    <div class="contact-card">
+                        <div class="contact-item">
+                            <span class="quaternary-label">EMAIL</span>
+                            <a href="mailto:pusanada.kwang@gmail.com" class="contact-value">pusanada.kwang@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="quaternary-label">GITHUB</span>
+                            <a href="https://github.com/pusanada" target="_blank" class="contact-value">github.com/pusanada</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="quaternary-label">PHONE</span>
+                            <span class="contact-value">+66 90-934-6881</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="quaternary-label">SOCIAL</span>
+                            <a href="https://instagram.com/k.hao_tood" target="_blank" class="contact-value">IG: k.hao_tood</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <img src="image/cha-gif.gif" alt="Character" class="char-image char-contact">
+                </div>
+            </div>
+            <button class="back-btn contact-back" data-target="page-home">
+                <span class="quaternary-label">BACK</span>
+                <span class="btn-icon">×</span>
+            </button>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="page-about" class="page">
+            <div class="about-container">
+                <div class="keep-out-tape tape-top">
+                    <div class="tape-text">KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="tape-text">KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                </div>
+                <div class="keep-out-tape tape-bottom">
+                    <div class="tape-text">KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="tape-text">KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KEEP OUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                </div>
+
+                <div class="about-bg-text">ABOUT</div>
+                
+                <div class="about-content">
+                    <div class="about-char-box">
+                        <img src="image/cha-gif.gif" alt="Character" class="char-image char-about">
+                    </div>
+                    
+                    <div class="about-info-area">
+                        <div class="name-badge">
+                            <div class="name-triangle-1"></div>
+                            <div class="name-triangle-2"></div>
+                            <span class="name-text">Pusanada</span>
+                        </div>
+                        <div class="about-text-box">
+                            <span class="quaternary-label">PROFILE DATA</span>
+                            <p>Engineering student interested in Frontend Development, UI/UX, and AI-assisted web design. Passionate about creating interactive and visually engaging digital experiences through prototyping and frontend concepts. Experienced with Figma, V0, and basic frontend development using HTML, CSS, and JavaScript. Eager to learn and grow through real-world product development experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="back-btn about-back" data-target="page-home">
+                <span class="quaternary-label">BACK</span>
+                <span class="btn-icon">×</span>
+            </button>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
