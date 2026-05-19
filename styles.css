@@ -557,8 +557,8 @@ body {
    ========================================= */
 .skills-clock-widget {
     position: absolute;
-    top: 3%;
-    right: 2%;
+    top:-5%;
+    right: -2%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -573,7 +573,7 @@ body {
     height: 500px;
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .clock-img-spin {
