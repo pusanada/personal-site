@@ -340,7 +340,7 @@ body {
 .triangle-name-line {
     display: block;
     font-family: var(--font-secondary);
-    font-size: clamp(4rem, 9vw, 11rem);
+    font-size: clamp(3rem, 9vw, 11rem);
     font-weight: 900;
     font-style: italic;
     letter-spacing: -4px;
@@ -557,13 +557,13 @@ body {
    ========================================= */
 .skills-clock-widget {
     position: absolute;
-    top: 10%;
-    right: 10%;
+    top: 3%;
+    right: 2%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    z-index: 3;
+    gap: 15px;
+    z-index: 2;
     pointer-events: none;
 }
 
