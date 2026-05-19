@@ -216,19 +216,16 @@ body {
     margin-bottom: 60px;
 }
 
-@media (max-width: 250px) {
-    .main-title {
-        font-size: clamp(10px, 10vw, 2.5rem);
-        text-shadow: 2px 2px 0 var(--color-navy);
-        overflow: hidden;
-        white-space: nowrap;
-        letter-spacing: 0;
+@media (max-width: 768px) {
+    .main-title { 
+        font-size: clamp(2rem, 10vw, 3.5rem); 
+        letter-spacing: -1px;
     }
 }
 
 .main-title {
     font-family: var(--font-secondary);
-    font-size: clamp(14px, 8vw, 6rem);
+    font-size: clamp(3rem, 8vw, 6rem); /* ใช้ clamp เผื่อไว้เลย */
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
