@@ -326,6 +326,78 @@ body {
     100% { transform: translateY(-15px); }
 }
 
+/* ── WHITE TRIANGLE: PUSANADA big text ── */
+.home-triangle-name {
+    position: absolute;
+    bottom: 4vh;
+    right: 3vw;
+    z-index: 2;          /* above bg shapes, below character (z-index 3) */
+    pointer-events: none;
+    text-align: right;
+    line-height: 1;
+}
+
+.triangle-name-line {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: clamp(4rem, 9vw, 11rem);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -4px;
+    /* classroom photo fills the text at 50% opacity */
+    color: transparent;
+    background-image: url('image/background.png.png');
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0.5;
+    /* subtle navy outline so it reads against white */
+    -webkit-text-stroke: 1px rgba(11, 16, 33, 0.25);
+}
+
+/* ── CHAR CONTAINER name overlay (behind character) ── */
+.character-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65vw;
+    height: 100vh;
+    z-index: 3;
+    animation: breatheSubtle 4s ease-in-out infinite alternate;
+}
+
+.char-name-text {
+    position: absolute;
+    bottom: 6%;
+    right: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 2;
+    pointer-events: none;
+    line-height: 0.88;
+}
+
+.char-name-line {
+    font-family: var(--font-secondary);
+    font-size: clamp(2.8rem, 5.5vw, 6rem);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -2px;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(0, 229, 255, 0.55);
+    text-shadow: 4px 4px 0px rgba(0, 18, 83, 0.35), 0 0 40px rgba(0, 229, 255, 0.2);
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .home-triangle-name { bottom: 2vh; right: 2vw; }
+    .triangle-name-line { font-size: 12vw; letter-spacing: -2px; }
+    .char-name-text { bottom: 4%; right: 3%; }
+    .char-name-line { font-size: 7vw; -webkit-text-stroke: 1px rgba(0, 229, 255, 0.55); }
+}
+
 /* =========================================
    SHARED SUBPAGES
    ========================================= */
