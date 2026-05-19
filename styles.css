@@ -557,21 +557,20 @@ body {
    ========================================= */
 .skills-clock-widget {
     position: absolute;
-    top: 50%;
-    right: 6%;
-    transform: translateY(-50%);
+    top: 5%;
+    right: 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
     z-index: 3;
     pointer-events: none;
 }
 
 .clock-img-wrap {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -592,7 +591,7 @@ body {
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--font-quaternary);
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     color: var(--color-cyan);
     text-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
     letter-spacing: 2px;
@@ -608,7 +607,7 @@ body {
 /* three stat numbers below the clock */
 .clock-stats-row {
     display: flex;
-    gap: 20px;
+    gap: 12px;
     align-items: flex-start;
 }
 
@@ -621,7 +620,7 @@ body {
 
 .clock-stat-num {
     font-family: var(--font-quaternary);
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     color: var(--color-cyan);
     line-height: 1;
     text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
@@ -629,14 +628,14 @@ body {
 
 .clock-stat-num::after {
     content: '+';
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     vertical-align: super;
     opacity: 0.7;
 }
 
 .clock-stat-label {
     font-family: var(--font-quaternary);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     letter-spacing: 1px;
