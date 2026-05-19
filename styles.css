@@ -218,7 +218,7 @@ body {
 
 .main-title {
     font-family: var(--font-secondary);
-    font-size: clamp(14px, 3vw, 6rem);
+    font-size: clamp(14px, 8vw, 6rem);
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
@@ -226,6 +226,8 @@ body {
     letter-spacing: -2px;
     line-height: 1;
     margin-top: 5px;
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 .home-menu {
