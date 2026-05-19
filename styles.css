@@ -216,12 +216,6 @@ body {
     margin-bottom: 60px;
 }
 
-@media (max-width: 768px) {
-    .main-title { 
-        font-size: clamp(2rem, 10vw, 3.5rem); 
-        letter-spacing: -1px;
-    }
-}
 
 .main-title {
     font-family: var(--font-secondary);
