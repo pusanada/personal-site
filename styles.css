@@ -96,10 +96,18 @@ body {
    ========================================= */
 #page-home {
     background: var(--color-white);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+#page-home::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .huge-bg-character {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -158,7 +166,7 @@ body {
 }
 
 .home-bg-left {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -190,7 +198,7 @@ body {
 }
 
 .home-bg-right {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     width: 60%;
@@ -201,11 +209,11 @@ body {
 }
 
 .content-container {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     z-index: 10;
     padding: 60px 80px;
     display: flex;
@@ -213,13 +221,12 @@ body {
 }
 
 .title-container {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
-
 
 .main-title {
     font-family: var(--font-secondary);
-    font-size: clamp(3rem, 8vw, 6rem); /* ใช้ clamp เผื่อไว้เลย */
+    font-size: clamp(3.5rem, 10vw, 6rem);
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
@@ -305,8 +312,36 @@ body {
     color: var(--color-white);
 }
 
+/* ── WHITE TRIANGLE: PUSANADA big text ── */
+.home-triangle-name {
+    position: fixed;
+    bottom: 4vh;
+    right: 3vw;
+    z-index: 2;          /* above bg shapes, below character (z-index 3) */
+    pointer-events: none;
+    text-align: right;
+    line-height: 1;
+}
+
+.triangle-name-line {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: clamp(3rem, 9vw, 11rem);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -4px;
+    color: transparent;
+    background-image: url('image/background.png.png');
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0.5;
+    -webkit-text-stroke: 1px rgba(11, 16, 33, 0.25);
+}
+
 .character-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 65vw;
@@ -326,78 +361,6 @@ body {
 @keyframes breatheSubtle {
     0% { transform: translateY(0); }
     100% { transform: translateY(-15px); }
-}
-
-/* ── WHITE TRIANGLE: PUSANADA big text ── */
-.home-triangle-name {
-    position: absolute;
-    bottom: 4vh;
-    right: 3vw;
-    z-index: 2;          /* above bg shapes, below character (z-index 3) */
-    pointer-events: none;
-    text-align: right;
-    line-height: 1;
-}
-
-.triangle-name-line {
-    display: block;
-    font-family: var(--font-secondary);
-    font-size: clamp(3rem, 9vw, 11rem);
-    font-weight: 900;
-    font-style: italic;
-    letter-spacing: -4px;
-    /* classroom photo fills the text at 50% opacity */
-    color: transparent;
-    background-image: url('image/background.png.png');
-    background-size: cover;
-    background-position: center;
-    -webkit-background-clip: text;
-    background-clip: text;
-    opacity: 0.5;
-    /* subtle navy outline so it reads against white */
-    -webkit-text-stroke: 1px rgba(11, 16, 33, 0.25);
-}
-
-/* ── CHAR CONTAINER name overlay (behind character) ── */
-.character-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 65vw;
-    height: 100vh;
-    z-index: 3;
-    animation: breatheSubtle 4s ease-in-out infinite alternate;
-}
-
-.char-name-text {
-    position: absolute;
-    bottom: 6%;
-    right: 4%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    z-index: 2;
-    pointer-events: none;
-    line-height: 0.88;
-}
-
-.char-name-line {
-    font-family: var(--font-secondary);
-    font-size: clamp(2.8rem, 5.5vw, 6rem);
-    font-weight: 900;
-    font-style: italic;
-    letter-spacing: -2px;
-    color: transparent;
-    -webkit-text-stroke: 1.5px rgba(0, 229, 255, 0.55);
-    text-shadow: 4px 4px 0px rgba(0, 18, 83, 0.35), 0 0 40px rgba(0, 229, 255, 0.2);
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .home-triangle-name { bottom: 2vh; right: 2vw; }
-    .triangle-name-line { font-size: 12vw; letter-spacing: -2px; }
-    .char-name-text { bottom: 4%; right: 3%; }
-    .char-name-line { font-size: 7vw; -webkit-text-stroke: 1px rgba(0, 229, 255, 0.55); }
 }
 
 /* =========================================
@@ -511,55 +474,9 @@ body {
     position: relative;
 }
 
-/* =========================================
-   CRT SCANLINE + FLICKER OVERLAY
-   ========================================= */
-.crt-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    pointer-events: none;
-    z-index: 9500;
-    /* scanlines via repeating gradient */
-    background: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.07) 2px,
-        rgba(0, 0, 0, 0.07) 4px
-    );
-    animation: crtFlicker 8s infinite;
-}
-
-/* subtle vignette on top of scanlines */
-.crt-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        ellipse at center,
-        transparent 60%,
-        rgba(0, 0, 0, 0.35) 100%
-    );
-}
-
-@keyframes crtFlicker {
-    0%   { opacity: 1; }
-    92%  { opacity: 1; }
-    93%  { opacity: 0.85; }
-    94%  { opacity: 1; }
-    96%  { opacity: 0.9; }
-    97%  { opacity: 1; }
-    99%  { opacity: 0.92; }
-    100% { opacity: 1; }
-}
-
-/* =========================================
-   SKILLS CLOCK WIDGET
-   ========================================= */
 .skills-clock-widget {
     position: absolute;
-    top:-30%;
+    top: -30%;
     right: -15%;
     display: flex;
     flex-direction: column;
@@ -587,38 +504,8 @@ body {
     mix-blend-mode: screen;
 }
 
-
-}
-
-@keyframes glowPulse {
-    from { text-shadow: 0 0 6px var(--color-cyan), 0 0 12px var(--color-cyan); }
-    to   { text-shadow: 0 0 14px var(--color-cyan), 0 0 30px var(--color-cyan), 0 0 2px #fff; }
-}
-
-/
-
-.skills-clock-container {
-    position: absolute;
-    top: -150px;
-    right: -150px;
-    width: 2000px;
-    height: 2000px;
-    opacity: 0.5;
-    mix-blend-mode: screen;
-    animation: spinClock 30s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.skills-clock-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-}
-
 @keyframes spinClock {
-    0%   { transform: rotate(0deg); }
+    0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
@@ -942,6 +829,125 @@ body {
 }
 
 /* =========================================
+   PROJECTS PAGE
+   ========================================= */
+#page-projects {
+    background-color: var(--color-blue);
+    background-image: url('image/background.png.png');
+    background-blend-mode: multiply;
+    background-size: 150%;
+    animation: panProjectsBg 25s ease-in-out infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@keyframes panProjectsBg {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.projects-container {
+    display: flex;
+    gap: 40px;
+    padding: 150px 60px 100px;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+}
+
+.project-card {
+    background: rgba(11, 16, 33, 0.95);
+    border-radius: 30px;
+    padding: 30px;
+    width: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none; /* remove link underline */
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 15px;
+    width: 6px;
+    background-color: var(--color-cyan);
+    border-radius: 10px;
+}
+
+.project-card:hover {
+    background-color: var(--color-white);
+}
+
+.big-project-title {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    z-index: 10;
+}
+
+.project-card-header {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    color: var(--color-white);
+    margin-left: 20px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-card-header,
+.project-card:hover .project-title {
+    color: var(--color-navy);
+}
+
+.project-img-wrapper {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.project-title {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.project-desc {
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    line-height: 1.5;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-desc {
+    color: rgba(11, 16, 33, 0.8);
+}
+
+/* =========================================
    NEW LEVEL UP TRANSITION (COMPLEX WIPE)
    ========================================= */
 #transition-overlay {
@@ -1074,11 +1080,16 @@ body {
     
     .char-skills { object-position: center; transform: scale(1); }
     .char-contact { object-position: center; transform: scale(1.3) rotate(180deg); }
+    
+    .projects-container {
+        flex-wrap: wrap;
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
 }
 
 /* Mobile Phones */
 @media (max-width: 768px) {
-    #page-home { overflow: hidden !important; }
     .main-title { font-size: 3.5rem; }
     .content-container { padding: 20px; }
     .home-menu { width: 100%; }
@@ -1122,4 +1133,34 @@ body {
     .about-text-box { padding: 20px; border-left: 5px solid var(--color-cyan); margin-bottom: 50px; }
     .about-text-box p { font-size: 1rem; }
     .about-bg-text { display: none; }
+    
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 20px;
+        padding-bottom: 150px;
+    }
+    .project-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-card {
+        padding: 20px;
+    }
+    .project-card::before {
+        top: 30px;
+        bottom: 30px;
+    }
+    .project-title {
+        font-size: 1.3rem;
+    }
+    .project-desc {
+        font-size: 0.85rem;
+    }
+    .project-img-wrapper {
+        height: 200px;
+    }
 }

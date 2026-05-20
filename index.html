@@ -19,8 +19,6 @@
 
     <!-- Global Background Texture Overlay -->
     <div class="global-texture-overlay"></div>
-    <!-- CRT Scanline + Flicker Overlay -->
-    <div class="crt-overlay"></div>
 
     <div id="app">
         <!-- HOME PAGE -->
@@ -42,7 +40,7 @@
             <div class="content-container">
                 <div class="title-container">
                     <span class="quaternary-label">select</span>
-                    <h1 class="main-title">PERSONAL<br>SITE</br></h1>
+                    <h1 class="main-title">PERSONAL<br>SITE</h1>
                 </div>
                 
                 <nav class="home-menu">
@@ -54,6 +52,11 @@
                     <button class="menu-btn" data-target="page-skills">
                         <span class="btn-bg"></span>
                         <span class="btn-text">SKILLS</span>
+                        <span class="btn-sub">select</span>
+                    </button>
+                    <button class="menu-btn" data-target="page-projects">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">PROJECTS</span>
                         <span class="btn-sub">select</span>
                     </button>
                     <button class="menu-btn" data-target="page-contact">
@@ -191,22 +194,35 @@
                 <span class="btn-icon">×</span>
             </button>
         </section>
+
+        <!-- PROJECTS PAGE -->
+        <section id="page-projects" class="page">
+            <h2 class="page-title big-project-title">PROJECTS</h2>
+            <div class="projects-container">
+                <a href="https://your-cute-pet.vercel.app" target="_blank" class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="image/tama.png" alt="TAMAGOTCHI">
+                    </div>
+                    <div class="project-title">TAMAGOTCHI</div>
+                    <p class="project-desc">Retro-inspired virtual pet website focused on playful UI interaction and responsive frontend experience.</p>
+                </a>
+
+                <a href="https://wanmaneema-2026-puce.vercel.app" target="_blank" class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="image/findit.png" alt="Findit - UX/UI design">
+                    </div>
+                    <div class="project-title">Findit - UX/UI design</div>
+                    <p class="project-desc">AI-powered retail web concept designed to improve product discovery and shopping experiences through smart search and interactive UI systems.</p>
+                </a>
+            </div>
+            
+            <button class="back-btn projects-back" data-target="page-home">
+                <span class="quaternary-label">BACK</span>
+                <span class="btn-icon">×</span>
+            </button>
+        </section>
     </div>
 
     <script src="app.js"></script>
-    <script>
-        // Live clock display
-        function updateClock() {
-            const el = document.getElementById('clock-live');
-            if (!el) return;
-            const now = new Date();
-            const h = String(now.getHours()).padStart(2, '0');
-            const m = String(now.getMinutes()).padStart(2, '0');
-            const s = String(now.getSeconds()).padStart(2, '0');
-            el.textContent = h + ':' + m + ':' + s;
-        }
-        updateClock();
-        setInterval(updateClock, 1000);
-    </script>
 </body>
 </html>
